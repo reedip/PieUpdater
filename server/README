@@ -1,0 +1,6 @@
+
+- In your "php.ini" file, search for the file_uploads directive, and set it to On:
+  ``file_uploads = On``
+
+- Reference:http://form.guide/php-form/html5-input-type-file.html
+

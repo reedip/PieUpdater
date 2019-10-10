@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script>
+function upload() {
+    var e = document.getElementById("versions");
+    var strUser = e.options[e.selectedIndex].value;
+    var data = new FormData();
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+     
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4 && this.status == 200) {
+        console.log(this.responseText);
+      }
+    });
+    //var cmd = "https://127.0.0.1:5000/packages/" + strUser + "/upload/"
+    cmd = "https://127.0.0.1:5000/packages/upload/"
+    xhr.open("POST", cmd)
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.send(data);
+}
+// the selection option below for the version numbers can be dynamically created, but its not in my current scope.
+// Refer https://css-tricks.com/dynamic-dropdowns/ for more hints and tricks
+</script>
+<body>
+    <marquee> Welcome to GoldSeat! </marquee>
+    Please select the version from the drop down box<br/>
+    <select id='versions'>
+    <option selected value>Please select the version</option>
+    <option value="5.0.1">V5.0.1</option>
+    <option value="5.0.2">V5.0.2</option>
+    </select>
+    <br />
+    Select a package to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload"> <br />
+    <input id="addFileButton" type="button" value="Upload Package" onclick="upload()"/>
+</form>
+</body>
+</html>

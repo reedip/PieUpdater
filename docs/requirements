@@ -1,0 +1,7 @@
+# Flask
+pip install flask
+pip install flask-RestFul
+
+# Unittests
+pip install unittest
+pip install mock
